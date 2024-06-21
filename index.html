@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microlins Barreiras - Cursos Profissionalizantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        header, footer {
+            background-color: #004080;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .course-item {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            flex: 1 1 calc(33% - 40px);
+            box-sizing: border-box;
+        }
+        .course-item h2 {
+            color: #004080;
+        }
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: calc(100% - 40px);
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .course-item {
+                flex: 1 1 calc(50% - 40px);
+            }
+        }
+        @media (max-width: 480px) {
+            .course-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Microlins Barreiras</h1>
+        <p>Os melhores cursos profissionalizantes para você!</p>
+    </header>
+    <main>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar cursos..." onkeyup="searchCourses()">
+        </div>
+        <div class="course-list" id="course-list">
+            <div class="course-item">
+                <h2>Excel Avançado</h2>
+                <p>Aprenda a dominar o Excel, uma ferramenta essencial para o mercado de trabalho. Nosso curso de Excel Avançado vai além das funções básicas, ensinando a criar dashboards, gráficos complexos e automatizar tarefas com macros.</p>
+            </div>
+            <div class="course-item">
+                <h2>Power BI</h2>
+                <p>Descubra o poder do Power BI e transforme dados em informações estratégicas. Este curso ensina a criar relatórios interativos, dashboards e visualizações que ajudam a tomar decisões informadas.</p>
+            </div>
+            <div class="course-item">
+                <h2>Excel Finanças</h2>
+                <p>Desenvolva habilidades financeiras utilizando o Excel. Aprenda a realizar análises financeiras, projeções, controle de orçamento e muito mais, tudo com a ajuda desta poderosa ferramenta.</p>
+            </div>
+            <div class="course-item">
+                <h2>Designer Gráfico</h2>
+                <p>Explore sua criatividade e aprenda as principais técnicas de design gráfico. Este curso abrange desde o tratamento de imagens até a criação de peças publicitárias, ajudando você a se destacar no mercado de trabalho.</p>
+            </div>
+            <div class="course-item">
+                <h2>Marketing Digital</h2>
+                <p>Domine as estratégias de marketing digital e impulsione negócios online. Aprenda sobre SEO, redes sociais, marketing de conteúdo e campanhas pagas para se tornar um profissional requisitado.</p>
+            </div>
+            <div class="course-item">
+                <h2>Informática Avançada</h2>
+                <p>Amplie seus conhecimentos em informática com nosso curso avançado. Abordamos desde o uso avançado do pacote Office até a manutenção de computadores e segurança da informação.</p>
+            </div>
+            <div class="course-item">
+                <h2>Administração</h2>
+                <p>Prepare-se para ser um gestor de sucesso. Nosso curso de administração cobre todos os aspectos da gestão empresarial, incluindo finanças, recursos humanos, logística e marketing.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Microlins Barreiras. Todos os direitos reservados.</p>
+        <p>Endereço: Av. Benedita Silveira, 156 - Andar Térreo - Centro - Barreiras, BA | Telefone: (77) 99830-7181</p>
+    </footer>
+    <script>
+        function searchCourses() {
+            const searchInput = document.querySelector('.search-bar input').value.toLowerCase();
+            const courses = document.querySelectorAll('.course-item');
+            courses.forEach(course => {
+                if (course.textContent.toLowerCase().includes(searchInput)) {
+                    course.style.display = '';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
