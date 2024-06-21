@@ -14,7 +14,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
         header, footer {
             background-color: darkblue;
@@ -23,6 +22,7 @@
             width: 100%;
             text-align: center;
             position: fixed;
+            z-index: 1000;
         }
         header {
             top: 0;
@@ -32,9 +32,10 @@
         }
         main {
             padding: 80px 20px 60px;
-            max-width: 800px;
             width: 100%;
             box-sizing: border-box;
+            overflow-y: auto;
+            flex: 1;
         }
         .course-item {
             background-color: #f0f0f0;
@@ -74,27 +75,27 @@
                 <h2>Excel Avançado</h2>
                 <p>Aprenda a dominar o Excel, uma ferramenta essencial para o mercado de trabalho. Nosso curso de Excel Avançado vai além das funções básicas, ensinando a criar dashboards, gráficos complexos e automatizar tarefas com macros.</p>
             </div>
-            <div class="course-item" style="display: none;">
+            <div class="course-item">
                 <h2>Power BI</h2>
                 <p>Descubra o poder do Power BI e transforme dados em informações estratégicas. Este curso ensina a criar relatórios interativos, dashboards e visualizações que ajudam a tomar decisões informadas.</p>
             </div>
-            <div class="course-item" style="display: none;">
+            <div class="course-item">
                 <h2>Excel Finanças</h2>
                 <p>Desenvolva habilidades financeiras utilizando o Excel. Aprenda a realizar análises financeiras, projeções, controle de orçamento e muito mais, tudo com a ajuda desta poderosa ferramenta.</p>
             </div>
-            <div class="course-item" style="display: none;">
+            <div class="course-item">
                 <h2>Designer Gráfico</h2>
                 <p>Explore sua criatividade e aprenda as principais técnicas de design gráfico. Este curso abrange desde o tratamento de imagens até a criação de peças publicitárias, ajudando você a se destacar no mercado de trabalho.</p>
             </div>
-            <div class="course-item" style="display: none;">
+            <div class="course-item">
                 <h2>Marketing Digital</h2>
                 <p>Domine as estratégias de marketing digital e impulsione negócios online. Aprenda sobre SEO, redes sociais, marketing de conteúdo e campanhas pagas para se tornar um profissional requisitado.</p>
             </div>
-            <div class="course-item" style="display: none;">
+            <div class="course-item">
                 <h2>Informática Avançada</h2>
                 <p>Amplie seus conhecimentos em informática com nosso curso avançado. Abordamos desde o uso avançado do pacote Office até a manutenção de computadores e segurança da informação.</p>
             </div>
-            <div class="course-item" style="display: none;">
+            <div class="course-item">
                 <h2>Administração</h2>
                 <p>Prepare-se para ser um gestor de sucesso. Nosso curso de administração cobre todos os aspectos da gestão empresarial, incluindo finanças, recursos humanos, logística e marketing.</p>
             </div>
@@ -108,18 +109,13 @@
         function searchCourses() {
             const searchInput = document.querySelector('.search-bar input').value.toLowerCase();
             const courses = document.querySelectorAll('.course-item');
-            let found = false;
             courses.forEach(course => {
                 if (course.textContent.toLowerCase().includes(searchInput)) {
-                    course.style.display = '';
-                    found = true;
+                    course.style.display = 'block';
                 } else {
                     course.style.display = 'none';
                 }
             });
-            if (!found) {
-                courses[0].style.display = '';
-            }
         }
     </script>
 </body>
