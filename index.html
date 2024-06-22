@@ -87,24 +87,27 @@
             text-decoration-color: #102040; /* Azul escuro sério */
         }
         .course p {
-            color: #777;
+            color: #444;
+            font-family: 'Arial Black', Gadget, sans-serif; /* Fonte mais cheia e moderna */
         }
-        .filters {
+        .search-bar {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
             margin-bottom: 2rem;
         }
-        .filters select, .filters input {
-            padding: 0.5rem;
+        .search-bar input[type="text"] {
+            width: 100%;
+            max-width: 600px;
+            padding: 0.75rem 1rem;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 50px;
             outline: none;
-            transition: border-color 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
-        .filters select:focus, .filters input:focus {
+        .search-bar input[type="text"]:focus {
             border-color: #102040;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         footer {
             background-color: #102040; /* Azul mais escuro */
@@ -196,15 +199,8 @@
     </header>
 
     <div class="container">
-        <div class="filters">
-            <select id="category-filter">
-                <option value="all">Todas as Categorias</option>
-                <option value="tecnologia">Tecnologia</option>
-                <option value="administracao">Administração</option>
-                <option value="design">Design</option>
-                <option value="marketing">Marketing</option>
-            </select>
-            <input type="text" id="search-filter" placeholder="Buscar...">
+        <div class="search-bar">
+            <input type="text" id="search-filter" placeholder="Buscar cursos...">
         </div>
 
         <div class="course-list">
@@ -269,18 +265,15 @@
     </a>
 
     <script>
-        document.getElementById('category-filter').addEventListener('change', filterCourses);
         document.getElementById('search-filter').addEventListener('input', filterCourses);
 
         function filterCourses() {
-            const category = document.getElementById('category-filter').value;
             const search = document.getElementById('search-filter').value.toLowerCase();
             const courses = document.querySelectorAll('.course');
 
             courses.forEach(course => {
-                const courseCategory = course.getAttribute('data-category');
                 const courseName = course.querySelector('h2').innerText.toLowerCase();
-                if ((category === 'all' || courseCategory === category) && courseName.includes(search)) {
+                if (courseName.includes(search)) {
                     course.style.display = '';
                 } else {
                     course.style.display = 'none';
