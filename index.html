@@ -66,9 +66,9 @@
             box-sizing: border-box;
             border-radius: 8px;
             transition: transform 0.3s ease;
-            flex: 1 1 45%; /* Ajusta os cursos para que ocupem 45% do contêiner pai em resoluções maiores */
+            flex: 1 1 calc(50% - 2rem); /* Ajusta os cursos para que ocupem 50% do contêiner pai em resoluções maiores */
         }
-        .course:nth-child(2n+1) {
+        .course:nth-child(odd) {
             margin-right: 2rem; /* Espaçamento direito para cursos ímpares */
         }
         .course:hover {
@@ -158,7 +158,6 @@
             .course {
                 flex-basis: 100%; /* Um curso por linha em telas pequenas */
                 margin: 1rem 0; /* Espaçamento entre os cursos */
-                margin-right: 0; /* Remove o espaçamento direito para cursos ímpares */
             }
             .whatsapp-float {
                 bottom: 20px;
@@ -172,7 +171,6 @@
         @media (min-width: 481px) and (max-width: 768px) {
             .course {
                 flex-basis: calc(50% - 2rem); /* Dois cursos por linha em telas médias */
-                margin-right: 0; /* Remove o espaçamento direito para cursos ímpares */
             }
             .whatsapp-float img {
                 width: 40px;
@@ -182,7 +180,6 @@
         @media (min-width: 769px) {
             .course {
                 flex-basis: calc(50% - 2rem); /* Dois cursos por linha em telas grandes */
-                margin-right: 0; /* Remove o espaçamento direito para cursos ímpares */
             }
         }
     </style>
