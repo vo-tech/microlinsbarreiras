@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             color: #fff;
+            overflow-x: hidden; /* Remove a rolagem horizontal */
         }
         header {
             background-color: #102040; /* Azul mais escuro */
@@ -19,7 +20,7 @@
             text-align: center; /* Centralizar o texto */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
-            height: 170px; /* Aumentado para acomodar o logotipo maior */
+            height: 204px; /* Aumentado para acomodar o logotipo maior */
             display: flex;
             align-items: center;
             justify-content: center; /* Centralizar os itens */
@@ -32,13 +33,13 @@
             max-width: 1200px;
             position: relative;
         }
-        header .-whatsapp {
+        header .logo-whatsapp {
             display: flex;
             align-items: center;
         }
-        header .-whatsapp img {
-            width: 125px; /* Aumentado em aproximadamente 25% */
-            height: 125px; /* Aumentado em aproximadamente 25% */
+        header .logo-whatsapp img {
+            width: 150px; /* Aumentado em aproximadamente 20% */
+            height: 150px; /* Aumentado em aproximadamente 20% */
             margin-right: 1rem;
         }
         .container {
@@ -143,12 +144,12 @@
             header h1 {
                 font-size: 1rem;
             }
-            header .-whatsapp {
+            header .logo-whatsapp {
                 flex-direction: column;
             }
-            header .-whatsapp img {
-                width: 80px;
-                height: 80px;
+            header .logo-whatsapp img {
+                width: 100px;
+                height: 100px;
                 margin-right: 0;
                 margin-bottom: 0.5rem;
             }
@@ -185,7 +186,7 @@
 
     <header>
         <div class="header-content">
-            <div class="-whatsapp">
+            <div class="logo-whatsapp">
                 <img src="https://i.imgur.com/VUkDyFW.png" alt="Logotipo">
                 <h1>Microlins Barreiras: Cursos Profissionalizantes</h1>
             </div>
