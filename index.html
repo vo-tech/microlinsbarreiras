@@ -6,117 +6,285 @@
     <title>Microlins Barreiras - Cursos Profissionalizantes</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #102040; /* Azul mais escuro */
             margin: 0;
             padding: 0;
-            background-color: royalblue;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header, footer {
-            background-color: darkblue;
-            color: white;
-            padding: 10px 0;
-            width: 100%;
-            text-align: center;
-            position: fixed;
-            z-index: 1000;
+            color: #fff;
         }
         header {
-            top: 0;
+            background-color: #102040; /* Azul mais escuro */
+            color: #fff;
+            padding: 1rem;
+            text-align: center; /* Centralizar o texto */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 170px; /* Aumentado para acomodar o logotipo maior */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centralizar os itens */
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centralizar os itens */
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+        }
+        header .logo-whatsapp {
+            display: flex;
+            align-items: center;
+        }
+        header .logo-whatsapp img {
+            width: 125px; /* Aumentado em aproximadamente 25% */
+            height: 125px; /* Aumentado em aproximadamente 25% */
+            margin-right: 1rem;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding-bottom: 5rem; /* Adicionado mais espaço no fundo */
+        }
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .course {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin: 1rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            flex: 1 1 30%; /* Ajusta os cursos para que ocupem 30% do contêiner pai */
+        }
+        .course:hover {
+            transform: scale(1.05);
+        }
+        .course img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .course h2 {
+            font-size: 1.5rem;
+            color: #102040;
+            margin-top: 0.5rem;
+            text-decoration: underline;
+            text-decoration-color: #102040; /* Azul escuro sério */
+        }
+        .course p {
+            color: #777;
+        }
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .filters select, .filters input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .filters select:focus, .filters input:focus {
+            border-color: #102040;
         }
         footer {
-            bottom: 0;
-        }
-        main {
-            padding: 80px 20px 60px;
-            width: 100%;
-            box-sizing: border-box;
-            overflow-y: auto;
-            flex: 1;
-        }
-        .course-item {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px 0;
-            padding: 20px;
-            color: black;
-        }
-        .course-item h2 {
-            color: darkblue;
-        }
-        .search-bar {
-            margin: 20px 0;
+            background-color: #102040; /* Azul mais escuro */
+            color: #fff;
             text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
-        .search-bar input {
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px; /* Ajuste para a posição correta */
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
             padding: 10px;
-            width: calc(100% - 40px);
-            max-width: 400px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .whatsapp-float img {
+            width: 50px;
+            height: 50px;
+        }
+        /* Responsividade */
+        @media (max-width: 480px) {
+            header {
+                justify-content: center; /* Centralizar no mobile */
+                text-align: center; /* Centralizar no mobile */
+            }
+            header h1 {
+                font-size: 1rem;
+            }
+            header .logo-whatsapp {
+                flex-direction: column;
+            }
+            header .logo-whatsapp img {
+                width: 80px;
+                height: 80px;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            .course {
+                flex-basis: 100%; /* Um curso por linha em telas pequenas */
+                margin: 1rem 0; /* Espaçamento entre os cursos */
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+            .course {
+                flex-basis: calc(33.333% - 2rem); /* Três cursos por linha em telas médias */
+            }
+            .whatsapp-float img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        @media (min-width: 769px) {
+            .course {
+                flex-basis: calc(33.333% - 2rem); /* Três cursos por linha em telas grandes */
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Microlins Barreiras</h1>
-        <p>Os melhores cursos profissionalizantes para você!</p>
+        <div class="header-content">
+            <div class="logo-whatsapp">
+                <img src="https://i.imgur.com/p5s4UzH.png" alt="Logotipo">
+                <h1>Microlins Barreiras: Cursos Profissionalizantes</h1>
+            </div>
+        </div>
     </header>
-    <main>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar cursos..." onkeyup="searchCourses()">
+
+    <div class="container">
+        <div class="filters">
+            <select id="category-filter">
+                <option value="all">Todas as Categorias</option>
+                <option value="tecnologia">Tecnologia</option>
+                <option value="administracao">Administração</option>
+                <option value="design">Design</option>
+                <option value="marketing">Marketing</option>
+            </select>
+            <input type="text" id="search-filter" placeholder="Buscar...">
         </div>
-        <div class="course-list" id="course-list">
-            <div class="course-item">
-                <h2>Excel Avançado</h2>
-                <p>Aprenda a dominar o Excel, uma ferramenta essencial para o mercado de trabalho. Nosso curso de Excel Avançado vai além das funções básicas, ensinando a criar dashboards, gráficos complexos e automatizar tarefas com macros.</p>
+
+        <div class="course-list">
+            <div class="course" data-category="tecnologia">
+                <a href="curso1.html">
+                    <img src="https://i.imgur.com/nXJzpsf.png" alt="Excel Avançado">
+                    <h2>Excel Avançado</h2>
+                </a>
+                <p>Domine o Excel com técnicas avançadas e melhore sua produtividade.</p>
             </div>
-            <div class="course-item">
-                <h2>Power BI</h2>
-                <p>Descubra o poder do Power BI e transforme dados em informações estratégicas. Este curso ensina a criar relatórios interativos, dashboards e visualizações que ajudam a tomar decisões informadas.</p>
+            <div class="course" data-category="tecnologia">
+                <a href="curso2.html">
+                    <img src="https://i.imgur.com/m0DCy7z.png" alt="Power BI">
+                    <h2>Power BI</h2>
+                </a>
+                <p>Transforme dados em informações valiosas com o Power BI.</p>
             </div>
-            <div class="course-item">
-                <h2>Excel Finanças</h2>
-                <p>Desenvolva habilidades financeiras utilizando o Excel. Aprenda a realizar análises financeiras, projeções, controle de orçamento e muito mais, tudo com a ajuda desta poderosa ferramenta.</p>
+            <div class="course" data-category="tecnologia">
+                <a href="curso3.html">
+                    <img src="https://i.imgur.com/P3zu28z.jpeg" alt="Excel Finanças">
+                    <h2>Excel Finanças</h2>
+                </a>
+                <p>Aprenda a usar o Excel para gerir suas finanças de forma eficaz.</p>
             </div>
-            <div class="course-item">
-                <h2>Designer Gráfico</h2>
-                <p>Explore sua criatividade e aprenda as principais técnicas de design gráfico. Este curso abrange desde o tratamento de imagens até a criação de peças publicitárias, ajudando você a se destacar no mercado de trabalho.</p>
+            <div class="course" data-category="design">
+                <a href="curso4.html">
+                    <img src="https://i.imgur.com/nXJzpsf.png" alt="Designer Gráfico">
+                    <h2>Designer Gráfico</h2>
+                </a>
+                <p>Desenvolva habilidades criativas e técnicas em design gráfico.</p>
             </div>
-            <div class="course-item">
-                <h2>Marketing Digital</h2>
-                <p>Domine as estratégias de marketing digital e impulsione negócios online. Aprenda sobre SEO, redes sociais, marketing de conteúdo e campanhas pagas para se tornar um profissional requisitado.</p>
+            <div class="course" data-category="marketing">
+                <a href="curso5.html">
+                    <img src="https://i.imgur.com/m0DCy7z.png" alt="Marketing Digital">
+                    <h2>Marketing Digital</h2>
+                </a>
+                <p>Aprenda estratégias de marketing para o ambiente digital.</p>
             </div>
-            <div class="course-item">
-                <h2>Informática Avançada</h2>
-                <p>Amplie seus conhecimentos em informática com nosso curso avançado. Abordamos desde o uso avançado do pacote Office até a manutenção de computadores e segurança da informação.</p>
+            <div class="course" data-category="tecnologia">
+                <a href="curso6.html">
+                    <img src="https://i.imgur.com/P3zu28z.jpeg" alt="Informática Avançada">
+                    <h2>Informática Avançada</h2>
+                </a>
+                <p>Aprimore seus conhecimentos em informática para o mercado de trabalho.</p>
             </div>
-            <div class="course-item">
-                <h2>Administração</h2>
-                <p>Prepare-se para ser um gestor de sucesso. Nosso curso de administração cobre todos os aspectos da gestão empresarial, incluindo finanças, recursos humanos, logística e marketing.</p>
+            <div class="course" data-category="administracao">
+                <a href="curso7.html">
+                    <img src="https://i.imgur.com/nXJzpsf.png" alt="Administração">
+                    <h2>Administração</h2>
+                </a>
+                <p>Desenvolva habilidades administrativas essenciais para o sucesso profissional.</p>
             </div>
         </div>
-    </main>
+    </div>
+
     <footer>
         <p>&copy; 2024 Microlins Barreiras. Todos os direitos reservados.</p>
-        <p>Endereço: Av. Benedita Silveira, 156 - Andar Térreo - Centro - Barreiras, BA | Telefone: (77) 99830-7181</p>
     </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/5577998307181" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
     <script>
-        function searchCourses() {
-            const searchInput = document.querySelector('.search-bar input').value.toLowerCase();
-            const courses = document.querySelectorAll('.course-item');
+        document.getElementById('category-filter').addEventListener('change', filterCourses);
+        document.getElementById('search-filter').addEventListener('input', filterCourses);
+
+        function filterCourses() {
+            const category = document.getElementById('category-filter').value;
+            const search = document.getElementById('search-filter').value.toLowerCase();
+            const courses = document.querySelectorAll('.course');
+
             courses.forEach(course => {
-                if (course.textContent.toLowerCase().includes(searchInput)) {
-                    course.style.display = 'block';
+                const courseCategory = course.getAttribute('data-category');
+                const courseName = course.querySelector('h2').innerText.toLowerCase();
+                if ((category === 'all' || courseCategory === category) && courseName.includes(search)) {
+                    course.style.display = '';
                 } else {
                     course.style.display = 'none';
                 }
             });
         }
     </script>
+
 </body>
 </html>
