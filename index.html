@@ -5,12 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microlins Barreiras - Cursos Profissionalizantes</title>
     <style>
-        /* Seu CSS aqui */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #102040;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        header {
+            background-color: #102040;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+        }
+        header .logo-whatsapp {
+            display: flex;
+            align-items: center;
+        }
+        header .logo-whatsapp img {
+            width: 150px;
+            height: 150px;
+            margin-right: 1rem;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding-bottom: 5rem;
+        }
+        .search-bar {
+            margin-bottom: 2rem;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .course {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin: 1rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            flex: 1 1 calc(50% - 2rem);
+        }
+        .course:hover {
+            transform: scale(1.05);
+        }
+        .course img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .course h2 {
+            font-size: 1.5rem;
+            color: #102040;
+            margin-top: 0.5rem;
+            text-decoration: underline;
+            text-decoration-color: #102040;
+        }
+        .course p {
+            color: #333;
+        }
+        footer {
+            background-color: #102040;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .whatsapp-float img {
+            width: 50px;
+            height: 50px;
+        }
+        @media (max-width: 480px) {
+            .course {
+                flex-basis: 100%;
+                margin: 1rem 0;
+            }
+            .whatsapp-float img {
+                width: 40px;
+                height: 40px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Seu HTML aqui -->
     <header>
         <div class="header-content">
             <div class="logo-whatsapp">
