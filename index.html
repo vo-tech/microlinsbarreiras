@@ -103,14 +103,17 @@
         </div>
     </div>
 
+    <button id="login-google">Login com Google</button>
+
     <!-- Firebase Configuration -->
     <script type="module">
-        // Import the functions you need from the SDKs you need
+        // Importar funções do Firebase SDK
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
         import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
 
-        // Your web app's Firebase configuration
+        // Configuração do Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyCv1J_AeO2LBbva2y1BcaQCnxcIkrGRy5o",
             authDomain: "votech-7a20c.firebaseapp.com",
@@ -122,10 +125,25 @@
             measurementId: "G-DWQ1WKGGE9"
         };
 
-        // Initialize Firebase
+        // Inicializar Firebase
         const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
         const database = getDatabase(app);
         const analytics = getAnalytics(app);
+
+        // Função de login com Google
+        document.getElementById('login-google').addEventListener('click', () => {
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    console.log('Usuário logado:', result.user);
+                    alert('Login bem-sucedido!');
+                })
+                .catch((error) => {
+                    console.error('Erro ao fazer login:', error);
+                    alert('Erro ao fazer login. Verifique o console para mais detalhes.');
+                });
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
             var modal = document.getElementById('modalInscricao');
@@ -158,18 +176,23 @@
                 var email = document.getElementById('email').value;
                 var curso = document.getElementById('curso').value;
 
-                // Enviar dados para o Firebase
-                push(ref(database, 'inscricoes'), {
-                    nome: nome,
-                    email: email,
-                    curso: curso
-                }).then(function() {
-                    alert('Inscrição realizada com sucesso!');
-                    modal.style.display = 'none';
-                }).catch(function(error) {
-                    alert('Erro ao realizar inscrição');
-                    console.error('Erro:', error);
-                });
+                // Verificar se o usuário está autenticado
+                if (auth.currentUser) {
+                    // Enviar dados para o Firebase
+                    push(ref(database, 'inscricoes'), {
+                        nome: nome,
+                        email: email,
+                        curso: curso
+                    }).then(function() {
+                        alert('Inscrição realizada com sucesso!');
+                        modal.style.display = 'none';
+                    }).catch(function(error) {
+                        alert('Erro ao realizar inscrição');
+                        console.error('Erro:', error);
+                    });
+                } else {
+                    alert('Por favor, faça login antes de enviar a inscrição.');
+                }
             });
         });
     </script>
