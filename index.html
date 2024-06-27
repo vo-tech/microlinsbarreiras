@@ -38,7 +38,7 @@
             align-items: center;
         }
         header .logo-whatsapp img {
-            width: 50%; /* Reduzido para 50% */
+            width: 100%; /* Tamanho completo */
             height: auto;
         }
         .container {
@@ -118,6 +118,12 @@
             bottom: 0;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
+        footer p {
+            margin: 0;
+        }
+        .footer-line {
+            display: block;
+        }
         /* WhatsApp Float Button */
         .whatsapp-float {
             position: fixed;
@@ -144,6 +150,9 @@
             header {
                 justify-content: center; /* Centralizar no mobile */
                 text-align: center; /* Centralizar no mobile */
+            }
+            header .logo-whatsapp {
+                justify-content: center; /* Centralizar o logotipo no mobile */
             }
             .course {
                 flex-basis: 100%; /* Um curso por linha em telas pequenas */
@@ -243,7 +252,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Microlins Barreiras. Todos os direitos reservados.</p>
+        <p class="footer-line">&copy; 2024 Microlins Barreiras.</p>
+        <p class="footer-line">Todos os direitos reservados.</p>
     </footer>
 
     <a class="whatsapp-float" href="https://wa.me/5577998307181" target="_blank">
