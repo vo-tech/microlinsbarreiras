@@ -7,15 +7,15 @@
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #ffffff; /* branco */
+            background-color: #ffffff; /* Fundo branco */
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #333; /* Texto mais escuro para contraste */
             overflow-x: hidden; /* Remove a rolagem horizontal */
         }
         header {
-            background-color: #ffffff; /* branco */
-            color: #333;
+            background-color: #ffffff; /* Fundo branco */
+            color: #333; /* Texto mais escuro para contraste */
             padding: 1rem;
             text-align: center; /* Centralizar o texto */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -32,10 +32,12 @@
             width: 100%;
             max-width: 1200px;
             position: relative;
+            overflow-x: hidden; /* Remove a rolagem horizontal */
         }
         header .logo-whatsapp {
             display: flex;
             align-items: center;
+            justify-content: center; /* Centralizar o logotipo no mobile */
         }
         header .logo-whatsapp img {
             width: 100%; /* Tamanho completo */
@@ -49,11 +51,13 @@
             color: #333;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            overflow-x: hidden; /* Remove a rolagem horizontal */
         }
         .course-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            overflow-x: hidden; /* Remove a rolagem horizontal */
         }
         .course {
             border: 1px solid #ddd;
@@ -109,8 +113,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         footer {
-            background-color: #102040; /* Azul mais escuro */
-            color: #fff;
+            background-color: #ffffff; /* Fundo branco */
+            color: #333; /* Texto mais escuro para contraste */
             text-align: center;
             padding: 1rem;
             position: relative;
