@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microlins - Transforme seu Futuro Profissional</title>
+    <style>
+        :root {
+            --primary-color: #002776; /* Azul escuro - cor oficial da Microlins */
+            --secondary-color: #ffd700; /* Amarelo - cor complementar */
+            --text-color: #333333;
+            --background-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 39, 118, 0.4); /* Destaca o botão com sombra */
+        }
+
+        .cta-button:hover {
+            background-color: #001b4f;
+        }
+
+        .hero {
+            position: relative;
+            background-image: url('hero-background20.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 39, 118, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .lead-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 40px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lead-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        #lead-capture-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #lead-capture-form input,
+        #lead-capture-form select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #lead-capture-form button {
+            margin-top: 10px;
+        }
+
+        /* Contador de urgência */
+        .countdown {
+            background-color: var(--secondary-color);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .benefit-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefits {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+        }
+
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .benefit-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .benefit-item {
+            flex-basis: 30%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .benefit-item img {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .courses {
+            padding: 80px 0;
+        }
+
+        .courses h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-info {
+            padding: 20px;
+        }
+
+        .testimonials {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .benefit-item, .course-card {
+                flex-basis: 100%;
+            }
+        }
+    @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logoh.png" alt="Microlins Logo">
+                </div>
+                <a href="#cta" class="cta-button">Matricule-se Já</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                
+                <h1>Transforme seu Futuro Profissional</h1>
+                <p>Cursos profissionalizantes que abrem portas para o mercado de trabalho</p>
+                <a href="#cta" class="cta-button" style="background-color: rgba(0, 39, 118, 0.7); animation: pulse 2s infinite;">Comece Agora</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <div class="countdown">
+        Últimas vagas! Inscreva-se em até <span id="time"></span> minutos e garanta 20% de desconto!
+    </div>
+
+    <section class="benefits">
+        <div class="container">
+            <h2>Por que escolher a Microlins?</h2>
+            <div class="benefit-items">
+                <div class="benefit-item" style="flex-basis: 45%; text-align: center;">
+                <img src="certificado.webp" alt="Certificado" style="width: 300px; height: 300px;">
+                    <h3>Certificado Reconhecido</h3>
+                    <p>Cursos com certificação válida em todo o Brasil</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <img src="mercado.webp" alt="Mercado de Trabalho" style="width: 300px; height: 300px;">
+                    <h3>Foco no Mercado</h3>
+                    <p>Cursos alinhados às demandas do mercado de trabalho</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses">
+        <div class="container">
+            <h2>Nossos Cursos em Destaque</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="excelavancado.jpeg" alt="Excel Avançado">
+                    <div class="course-info">
+                        <h3>Excel Avançado</h3>
+                        <p>Domine as funcionalidades avançadas do Excel e destaque-se no mercado.</p>
+                        <a href="#cta" class="cta-button">Matricule-se</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="designergrafico.jpeg" alt="Designer Gráfico">
+                    <div class="course-info">
+                        <h3>Designer Gráfico</h3>
+                        <p>Aprenda as principais ferramentas e técnicas do design gráfico moderno.</p>
+                        <a href="#cta" class="cta-button">Matricule-se</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="marketingdigital.jpeg" alt="Marketing Digital">
+                    <div class="course-info">
+                        <h3>Marketing Digital</h3>
+                        <p>Desenvolva estratégias eficazes para o mundo digital e impulsione negócios.</p>
+                        <a href="#cta" class="cta-button">Matricule-se</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="administracao.jpeg" alt="Administração">
+                    <div class="course-info">
+                        <h3>Administração</h3>
+                        <p>Aprenda os fundamentos da administração e desenvolva habilidades para gerir negócios com eficiência.</p>
+                        <a href="#cta" class="cta-button">Matricule-se</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="excelfinancas.jpeg" alt="Excel Finanças">
+                    <div class="course-info">
+                        <h3>Excel Finanças</h3>
+                        <p>Utilize o Excel para controlar finanças e tomar decisões financeiras mais assertivas.</p>
+                        <a href="#cta" class="cta-button">Matricule-se</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="informaticaavancada.jpeg" alt="Informática Avançada">
+                    <div class="course-info">
+                        <h3>Informática Avançada</h3>
+                        <p>Domine ferramentas de informática para otimizar sua produtividade e alcançar melhores resultados.</p>
+                        <a href="#cta" class="cta-button">Matricule-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="lead-form-section" class="lead-form" style="display: none;">
+        <h2>Receba mais informações</h2>
+        <form id="lead-capture-form">
+            <input type="text" name="name" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <input type="tel" name="phone" placeholder="Seu telefone" required>
+            <button type="submit" class="cta-button">Quero saber mais</button>
+            <p>Entraremos em contato em até 24 horas</p>
+        </form>
+    </section>
+
+    <script>
+        function openLeadForm() {
+            document.getElementById('lead-form-section').style.display = 'block';
+        }
+    </script>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>O que nossos alunos dizem</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"O curso de Excel Avançado da Microlins transformou minha carreira. Hoje sou analista de dados em uma grande empresa."</p>
+                    <h4>Maria Silva</h4>
+                    <img src="aluno1.jpeg" alt="Maria Silva" style="border-radius: 50%; width: 50px;">
+                </div>
+                <div class="testimonial-card">
+                    <p>"Graças ao curso de Designer Gráfico, consegui abrir meu próprio estúdio de design. A Microlins mudou minha vida!"</p>
+                    <h4>João Santos</h4>
+                    <img src="aluno2.jpeg" alt="João Santos" style="border-radius: 50%; width: 50px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2>Comece sua jornada de sucesso hoje!</h2>
+            <p>Matricule-se agora e ganhe 20% de desconto!</p>
+            <a href="#" class="cta-button">Matricule-se Já</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2005-<span id="currentYear"></span> Microlins Barreiras. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Gatilho de urgência
+        var countDownDate = new Date().getTime() + 15 * 60 * 1000; // 15 minutos a partir de agora
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("time").textContent = minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("time").textContent = "Expirado";
+            }
+        }, 1000);
+    </script>
+
+    <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank" aria-label="Fale conosco pelo WhatsApp">
+        <img src="whatsapp.svg" alt="WhatsApp" />
+    </a>
+
+    <style>
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            z-index: 100;
+        }
+
+        .whatsapp-button img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-button:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-button {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</body>
+</html>
